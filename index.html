@@ -1,0 +1,68 @@
+<html>
+<head>
+	
+</head>
+<body>
+<div id="app">
+  <div id="app-nav-view"></div>
+  <div id="app-content-view">
+  	
+  </div>
+  <div id="app-footer-view">
+  	
+  </div>
+</div>
+</body>
+
+<script type="text/javascript" src="scripts/js/jquery.js"></script>
+<script type="text/javascript" src="scripts/js/underscore.js"></script>
+
+<script type="text/javascript" src="scripts/js/backbone.js"></script>
+<script type="text/javascript" src="scripts/js/backbone.marionette.js"></script>
+
+
+<footer>
+
+<!-- Templates -->
+<script type="text/x-backbone" id="index-template">
+	<h2>Marionette Sample Application</h2>
+	<p>This is a simple application</p>
+</script>
+
+<script type="text/x-backbone" id="app-content-view">
+	<p>App Content View</p>
+</script>
+
+<script type="text/x-backbone" id="app-footer-view">
+	<p>App Footer View</p>
+</script>
+
+<script type="text/x-backbone" id="app-nav-view">
+	<p>App Navigation View</p>
+</script>
+<!-- End of Templates -->
+
+
+
+
+</footer>
+<script type="text/javascript">
+	var UserAdmin = new Marionette.Application();
+
+	UserAdmin.addInitializer(function(){
+
+		UserAdmin.addRegions({
+			mainRegion: "#app"
+		});
+
+		var IndexView = Marionette.ItemView.extend({
+			template:"#index-template"
+		});
+
+		UserAdmin.mainRegion.show(new IndexView());
+	})
+
+	UserAdmin.start();
+
+</script>
+</html>
